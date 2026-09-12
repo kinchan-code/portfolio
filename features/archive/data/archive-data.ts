@@ -48,7 +48,7 @@ export const data = [
   {
     year: "2026",
     project: "GeoAds Map Visualizer",
-    madeAt: "Optima Solutions LLC",
+    madeAt: "Optimas Solutions LLC",
     technologies: [
       { name: "TypeScript" },
       { name: "React.js" },
@@ -72,17 +72,17 @@ export const data = [
   {
     year: "2025",
     project: "Just Holistics",
-    madeAt: "Optima Solutions LLC",
+    madeAt: "Optimas Solutions LLC",
     technologies: [
-      { name: "Next.js" },
-      { name: "SASS" },
+      { name: "React.js" },
       { name: "TypeScript" },
-      { name: "Git" },
-      { name: "Scrum" },
-      { name: "API Integration" },
-      { name: "API Development" },
+      { name: "Tailwind CSS" },
+      { name: "Shadcn UI" },
+      { name: "React Query" },
+      { name: "Axios" },
+      { name: "Zustand" },
       { name: "Laravel" },
-      { name: "PHP" },
+      { name: "Typesense" },
       { name: "MySQL" },
     ],
     links: [

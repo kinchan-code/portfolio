@@ -1,9 +1,9 @@
-import { Link } from "lucide-react";
+import { Link as LinkIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+
+import { TechBadges } from "@/components/shared";
 import {
-  Badge,
-  Button,
   Table,
   TableBody,
   TableCaption,
@@ -15,74 +15,65 @@ import {
 
 import type { ArchiveTableProps } from "@/features/archive/types/archive.types";
 
-export function ArchiveTable({ data, caption, headers }: Readonly<ArchiveTableProps>) {
+export function ArchiveTable({
+  data,
+  caption,
+  headers,
+}: Readonly<ArchiveTableProps>) {
   return (
-    <Table>
-      <TableCaption>{caption}</TableCaption>
-      <TableHeader>
-        <TableRow>
-          {headers.map((header, index) => (
-            <TableHead
-              key={header}
-              className={cn(
-                "font-body",
-                index === 2 && "hidden md:table-cell",
-                index === 3 && "hidden md:table-cell",
-                index === 4 && "hidden sm:table-cell"
-              )}
-            >
-              {header}
-            </TableHead>
-          ))}
-        </TableRow>
-      </TableHeader>
-      <TableBody className="font-body">
-        {data.map((row) => (
-          <TableRow key={`${row.year}-${row.project}`}>
-            <TableCell className="text-muted-foreground font-body font-semibold">
-              {row.year}
-            </TableCell>
-            <TableCell className="font-bold font-body">{row.project}</TableCell>
-            <TableCell className="hidden md:table-cell font-body font-medium">
-              {row.madeAt}
-            </TableCell>
-            <TableCell className="hidden md:table-cell">
-              <div className="flex gap-2 flex-wrap">
-                {row.technologies?.map((tech) => (
-                  <Badge
-                    variant="outline"
-                    className="w-fit bg-blue-200/40 p-2 rounded-full cursor-pointer dark:bg-blue-600/20"
-                    key={tech.name}
-                  >
-                    <p className="text-md font-semibold text-blue-600 font-body dark:text-blue-400">
-                      {tech.name}
-                    </p>
-                  </Badge>
-                ))}
-              </div>
-            </TableCell>
-            <TableCell className="hidden sm:table-cell">
-              <div className="flex gap-2 flex-wrap">
-                {row.links?.map((link) => (
-                  <Button
-                    variant="link"
-                    className="font-bold text-sm flex justify-start"
-                    onClick={() => {
-                      window.open(link.path, "_blank");
-                    }}
-                    key={link.name}
-                  >
-                    <div className="flex gap-4 items-center">
-                      <Link className="size-4" />
-                      <p className="text-xs font-bold">{link.name}</p>
-                    </div>
-                  </Button>
-                ))}
-              </div>
-            </TableCell>
+    <div className="overflow-x-auto">
+      <Table>
+        <TableCaption>{caption}</TableCaption>
+        <TableHeader>
+          <TableRow>
+            {headers.map((header, index) => (
+              <TableHead
+                key={header}
+                className={cn(
+                  index === 2 && "hidden md:table-cell",
+                  index === 4 && "hidden sm:table-cell"
+                )}
+              >
+                {header}
+              </TableHead>
+            ))}
           </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+        </TableHeader>
+        <TableBody>
+          {data.map((row) => (
+            <TableRow key={`${row.year}-${row.project}`}>
+              <TableCell className="font-semibold text-muted-foreground">
+                {row.year}
+              </TableCell>
+              <TableCell className="font-bold">{row.project}</TableCell>
+              <TableCell className="hidden font-medium md:table-cell">
+                {row.madeAt}
+              </TableCell>
+              <TableCell>
+                {row.technologies?.length ? (
+                  <TechBadges technologies={row.technologies} maxVisible={3} />
+                ) : null}
+              </TableCell>
+              <TableCell className="hidden sm:table-cell">
+                <div className="flex flex-wrap gap-2">
+                  {row.links?.map((link) => (
+                    <a
+                      href={link.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-xs font-bold hover:underline"
+                      key={link.path}
+                    >
+                      <LinkIcon className="size-4" />
+                      {link.name}
+                    </a>
+                  ))}
+                </div>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
   );
 }

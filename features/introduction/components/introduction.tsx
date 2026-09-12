@@ -1,54 +1,63 @@
-"use client";
+import type { ReactNode } from "react";
+import { ArrowUpRight } from "lucide-react";
 
-import { motion } from "framer-motion";
-import { ArrowUpRight, Terminal } from "lucide-react";
+import { siteConfig } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
-import { Button } from "@/components/ui/button";
-import { Socials } from "@/features/socials";
+import { buttonVariants } from "@/components/ui";
 
-export function Introduction() {
+interface IntroductionProps {
+  children?: ReactNode;
+}
+
+export function Introduction({ children }: Readonly<IntroductionProps>) {
   return (
-    <article className="flex flex-col gap-2 w-max-screen">
-      <section className="py-12 lg:py-24 lg:p-6">
-        <div className="grid gap-8 xl:grid-cols-2 w-full">
-          <div className="flex flex-col justify-center text-justify space-y-4 w-full">
-            <div className="">
-              <h1 className="text-xl font-bold tracking-tighter sm:text-2xl lg:text-3xl xl:text-5xl/none">
-                Christian Bangay
-              </h1>
-            </div>
-            <h2 className="text-lg font-medium text-muted-foreground sm:text-xl">
+    <article className="flex flex-col gap-2">
+      <section className="py-20 lg:py-28">
+        <div className="flex max-w-2xl flex-col gap-6">
+          <div className="space-y-3">
+            {siteConfig.availableForWork ? (
+              <p className="inline-flex w-fit items-center gap-2 rounded-full border border-brand/25 bg-brand-soft px-3 py-1 text-xs font-semibold tracking-wide text-brand uppercase">
+                <span
+                  className="size-1.5 shrink-0 rounded-full bg-brand"
+                  aria-hidden
+                />
+                <span>Available for work</span>
+              </p>
+            ) : null}
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">
+              Christian Bangay
+            </h1>
+            <h2 className="text-base font-medium tracking-wide text-muted-foreground sm:text-lg">
               Frontend Software Engineer
             </h2>
-            <div className="pl-2">
-              <Button
-                aria-label="Open resume in a new tab"
-                variant="link"
-                onClick={() => {
-                  window.open("/bangay-resume.pdf", "_blank");
-                }}
-                className="w-32 flex items-center gap-2"
-              >
-                <p className="font-list font-semibold">Check my Resume</p>
-                <ArrowUpRight className="w-4 h-4" />
-              </Button>
-            </div>
-            <Socials />
           </div>
-          <div className="hidden xl:flex items-center justify-center xl:w-full">
-            <motion.div
-              animate={{
-                rotate: [0, 5, -5, 0],
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
+          <p className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            I make web apps with React and Next.js. Lately I&apos;ve been on
+            trademark tools, map visualizers, and health platforms, and I jump
+            into the API and Azure side when needed.
+          </p>
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href="/bangay-resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(buttonVariants({ size: "lg" }), "w-fit")}
             >
-              <Terminal className="h-64 w-64 text-primary" />
-            </motion.div>
+              Resume
+              <ArrowUpRight className="size-4" />
+            </a>
+            <a
+              href={siteConfig.links.email}
+              className={cn(
+                buttonVariants({ variant: "outline", size: "lg" }),
+                "w-fit"
+              )}
+            >
+              Email
+            </a>
           </div>
+          {children}
         </div>
       </section>
     </article>
