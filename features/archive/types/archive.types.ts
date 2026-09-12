@@ -1,22 +1,7 @@
-interface ArchiveLink {
-  name: string;
-  path: string;
-}
-
-interface ArchiveTechnology {
-  name: string;
-}
-
-interface ArchiveTableRow {
-  year: string;
-  project: string;
-  madeAt: string;
-  technologies?: ArchiveTechnology[];
-  links?: ArchiveLink[];
-}
+import type { ArchiveProjectRow } from "@/lib/data/projects";
 
 export interface ArchiveTableProps {
   caption?: string;
   headers: string[];
-  data: ArchiveTableRow[];
+  data: ArchiveProjectRow[];
 }

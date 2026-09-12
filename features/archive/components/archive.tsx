@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
-import { projectFilterOptions } from "@/lib/site";
+import { projectFilterOptions, siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 import { ProjectFilters, useProjectFilter } from "@/components/shared";
@@ -33,7 +33,7 @@ export function Archive() {
             )}
           >
             <ArrowLeft className="size-4" />
-            <span className="text-lg">Christian Bangay</span>
+            <span className="text-lg">{siteConfig.name}</span>
           </Link>
         </div>
         <h1 className="text-4xl font-bold">All Projects</h1>

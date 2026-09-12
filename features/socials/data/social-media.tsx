@@ -83,7 +83,7 @@ export const socialMedia: SocialMediaItem[] = [
   {
     name: "GitHub",
     icon: <BrandIcon title={siGithub.title} path={siGithub.path} />,
-    link: "https://github.com/Kinchan-code",
+    link: siteConfig.links.github,
   },
   {
     name: "LinkedIn",
@@ -93,7 +93,7 @@ export const socialMedia: SocialMediaItem[] = [
   {
     name: "Facebook",
     icon: <BrandIcon title={siFacebook.title} path={siFacebook.path} />,
-    link: "https://www.facebook.com/kinchanqt",
+    link: siteConfig.links.facebook,
   },
   {
     name: "Email",
