@@ -26,16 +26,14 @@ export function Introduction({ children }: Readonly<IntroductionProps>) {
               </p>
             ) : null}
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">
-              Christian Bangay
+              {siteConfig.name}
             </h1>
             <h2 className="text-base font-medium tracking-wide text-muted-foreground sm:text-lg">
-              Frontend Software Engineer
+              {siteConfig.jobTitle}
             </h2>
           </div>
           <p className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            I make web apps with React and Next.js. Lately I&apos;ve been on
-            trademark tools, map visualizers, and health platforms, and I jump
-            into the API and Azure side when needed.
+            {siteConfig.intro}
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <a
