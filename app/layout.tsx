@@ -4,10 +4,11 @@ import { Suspense } from "react";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-import { Loader } from "@/components/shared";
 import { siteConfig } from "@/lib/site";
 import { getThemeInitScript } from "@/lib/theme-init-script";
 import { ScrollRestorerProvider, ThemeProvider } from "@/providers";
+
+import { Loader, PageAtmosphere, SkipLink } from "@/components/shared";
 
 import "./globals.css";
 
@@ -48,8 +49,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: siteConfig.ogImage,
-        width: 1600,
-        height: 1600,
+        width: 1200,
+        height: 630,
         alt: `${siteConfig.name} — Frontend Software Engineer`,
       },
     ],
@@ -84,7 +85,7 @@ const jsonLd = {
   email: siteConfig.email,
   jobTitle: "Frontend Software Engineer",
   description: siteConfig.description,
-  image: `${siteConfig.url}${siteConfig.ogImage}`,
+  image: `${siteConfig.url}/me.jpg`,
   sameAs: [siteConfig.links.linkedin],
 };
 
@@ -118,6 +119,8 @@ export default function RootLayout({
           defaultTheme={defaultTheme}
           storageKey={themeStorageKey}
         >
+          <SkipLink />
+          <PageAtmosphere />
           <Suspense fallback={<Loader />}>
             {children}
             <ScrollRestorerProvider />

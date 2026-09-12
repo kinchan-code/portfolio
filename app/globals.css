@@ -4,58 +4,61 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: hsl(40 20% 97%);
-  --foreground: hsl(222.2 84% 4.9%);
-  --card: hsl(0 0% 100%);
-  --card-foreground: hsl(222.2 84% 4.9%);
-  --popover: hsl(0 0% 100%);
-  --popover-foreground: hsl(222.2 84% 4.9%);
-  --primary: hsl(222.2 47.4% 11.2%);
+  /* Cool ink + signal blue — not stock shadcn slate */
+  --background: hsl(210 33% 97%);
+  --foreground: hsl(222 35% 11%);
+  --card: hsl(210 40% 99%);
+  --card-foreground: hsl(222 35% 11%);
+  --popover: hsl(210 40% 99%);
+  --popover-foreground: hsl(222 35% 11%);
+  --primary: hsl(222 28% 16%);
   --primary-foreground: hsl(210 40% 98%);
-  --secondary: hsl(210 40% 96.1%);
-  --secondary-foreground: hsl(222.2 47.4% 11.2%);
-  --muted: hsl(210 40% 96.1%);
-  --muted-foreground: hsl(215.4 16.3% 46.9%);
-  --accent: hsl(210 40% 96.1%);
-  --accent-foreground: hsl(222.2 47.4% 11.2%);
-  --destructive: hsl(0 84.2% 60.2%);
-  --destructive-foreground: hsl(210 40% 98%);
-  --border: hsl(214.3 31.8% 91.4%);
-  --input: hsl(214.3 31.8% 91.4%);
-  --ring: hsl(222.2 84% 4.9%);
-  --chart-1: hsl(12 76% 61%);
-  --chart-2: hsl(173 58% 39%);
-  --chart-3: hsl(197 37% 24%);
-  --chart-4: hsl(43 74% 66%);
-  --chart-5: hsl(27 87% 67%);
-  --radius: 0.5rem;
+  --secondary: hsl(210 28% 93%);
+  --secondary-foreground: hsl(222 30% 16%);
+  --muted: hsl(210 24% 94%);
+  --muted-foreground: hsl(215 14% 40%);
+  --accent: hsl(211 42% 93%);
+  --accent-foreground: hsl(215 45% 22%);
+  --brand: hsl(211 72% 42%);
+  --brand-foreground: hsl(0 0% 100%);
+  --brand-soft: hsl(211 70% 92%);
+  --destructive: hsl(0 72% 48%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --border: hsl(214 24% 86%);
+  --input: hsl(214 24% 86%);
+  --ring: hsl(211 72% 42%);
+  --hero-wash: hsl(211 50% 88% / 0.88);
+  --grid-dot: hsl(215 22% 50% / 0.3);
+  --radius: 0.625rem;
+  /* Shared by section anchors (`scroll-margin-top`) and the scroll-spy probe. */
+  --section-nav-offset: 4rem;
 }
 
 .dark {
-  --background: hsl(0 0% 7.1%);
-  --foreground: hsl(210 40% 98%);
-  --card: hsl(222.2 84% 4.9%);
-  --card-foreground: hsl(210 40% 98%);
-  --popover: hsl(222.2 84% 4.9%);
-  --popover-foreground: hsl(210 40% 98%);
-  --primary: hsl(210 40% 98%);
-  --primary-foreground: hsl(222.2 47.4% 11.2%);
-  --secondary: hsl(217.2 32.6% 17.5%);
-  --secondary-foreground: hsl(210 40% 98%);
-  --muted: hsl(217.2 32.6% 17.5%);
-  --muted-foreground: hsl(215 20.2% 65.1%);
-  --accent: hsl(217.2 32.6% 17.5%);
-  --accent-foreground: hsl(210 40% 98%);
-  --destructive: hsl(0 62.8% 30.6%);
-  --destructive-foreground: hsl(210 40% 98%);
-  --border: hsl(217.2 32.6% 17.5%);
-  --input: hsl(217.2 32.6% 17.5%);
-  --ring: hsl(212.7 26.8% 83.9%);
-  --chart-1: hsl(220 70% 50%);
-  --chart-2: hsl(160 60% 45%);
-  --chart-3: hsl(30 80% 55%);
-  --chart-4: hsl(280 65% 60%);
-  --chart-5: hsl(340 75% 55%);
+  --background: hsl(222 24% 7%);
+  --foreground: hsl(210 30% 96%);
+  --card: hsl(222 22% 10%);
+  --card-foreground: hsl(210 30% 96%);
+  --popover: hsl(222 22% 10%);
+  --popover-foreground: hsl(210 30% 96%);
+  --primary: hsl(210 28% 94%);
+  --primary-foreground: hsl(222 30% 12%);
+  --secondary: hsl(220 18% 14%);
+  --secondary-foreground: hsl(210 30% 96%);
+  --muted: hsl(220 16% 13%);
+  --muted-foreground: hsl(215 12% 65%);
+  --accent: hsl(215 28% 14%);
+  --accent-foreground: hsl(211 55% 72%);
+  --brand: hsl(211 55% 68%);
+  --brand-foreground: hsl(222 40% 10%);
+  --brand-soft: hsl(211 35% 16%);
+  --destructive: hsl(0 62% 45%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --border: hsl(220 16% 18%);
+  --input: hsl(220 16% 18%);
+  --ring: hsl(211 45% 55%);
+  --hero-wash: hsl(211 28% 16% / 0.22);
+  --grid-dot: hsl(210 30% 90% / 0.1);
 }
 
 @theme inline {
@@ -73,16 +76,14 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-soft: var(--brand-soft);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
@@ -92,23 +93,45 @@
   text-wrap: balance;
 }
 
+@utility bg-dot-grid {
+  background-image: radial-gradient(
+    circle at center,
+    var(--grid-dot) 1.1px,
+    transparent 1.1px
+  );
+  background-size: 24px 24px;
+}
+
 @layer base {
   * {
     @apply border-border;
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklab, var(--brand) 35%, transparent)
+      transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   body {
     @apply bg-background text-foreground;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   }
 
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: oklch(0.5 0.01 285.823 / 0.3) transparent;
+  a:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
   }
 
   .dark * {
-    scrollbar-color: oklch(0.4 0.01 285.823 / 0.5) oklch(0.21 0.006 285.885);
+    scrollbar-color: color-mix(in oklab, var(--brand) 45%, transparent)
+      color-mix(in oklab, var(--muted) 80%, transparent);
   }
 
   *::-webkit-scrollbar {
@@ -121,24 +144,14 @@
   }
 
   *::-webkit-scrollbar-thumb {
-    background: oklch(0.5 0.01 285.823 / 0.3);
+    background: color-mix(in oklab, var(--brand) 35%, transparent);
     border-radius: 4px;
     border: 2px solid transparent;
     background-clip: padding-box;
   }
 
   *::-webkit-scrollbar-thumb:hover {
-    background: oklch(0.5 0.01 285.823 / 0.5);
-    background-clip: padding-box;
-  }
-
-  .dark *::-webkit-scrollbar-thumb {
-    background: oklch(0.4 0.01 285.823 / 0.5);
-    background-clip: padding-box;
-  }
-
-  .dark *::-webkit-scrollbar-thumb:hover {
-    background: oklch(0.5 0.01 285.823 / 0.6);
+    background: color-mix(in oklab, var(--brand) 55%, transparent);
     background-clip: padding-box;
   }
 }

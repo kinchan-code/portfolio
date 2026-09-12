@@ -1,22 +1,19 @@
+import { SectionHeading } from "@/components/shared";
+
 export function About() {
   return (
-    <main className="container flex flex-col gap-4">
-      <label
-        htmlFor="about"
-        className="text-lg font-bold font-body uppercase lg:pl-6"
-      >
-        About
-      </label>
-      <p
-        id="about"
-        className="text-md font-body text-wrap text-justify lg:p-4 p-2 lg:px-6"
-      >
-        I am a Frontend Software Engineer who builds accessible, responsive web
-        applications with React and Next.js. I also work across the stack when
-        needed, APIs, databases, and deployment — to deliver solid end-to-end
-        product experiences. I continuously seek opportunities to learn and
-        contribute to innovative web projects.
+    <section
+      aria-labelledby="about-heading"
+      className="container flex flex-col gap-4"
+    >
+      <SectionHeading id="about-heading">About</SectionHeading>
+      <p className="p-2 text-base lg:p-4 lg:px-6">
+        I&apos;m a frontend engineer who likes shipping interfaces people can
+        actually use. React and Next.js are home base. I&apos;ve worked on
+        trademark protection products, location-based maps, and health
+        platforms, and I&apos;m comfortable picking up APIs, databases, and
+        Azure when a project needs it.
       </p>
-    </main>
+    </section>
   );
 }

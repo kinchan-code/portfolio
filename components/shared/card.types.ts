@@ -1,11 +1,11 @@
 import type { StaticImageData } from "next/image";
 
-export interface CardLink {
+interface CardLink {
   name: string;
   path: string;
 }
 
-export interface CardTechnology {
+interface CardTechnology {
   name: string;
 }
 
@@ -16,6 +16,7 @@ export interface CardInfo {
   path?: string;
   company?: string;
   description?: string;
+  highlights?: string[];
   links?: CardLink[];
   technologies?: CardTechnology[];
 }

@@ -8,7 +8,7 @@ import {
   useSyncExternalStore,
 } from "react";
 
-export type Theme = "dark" | "light";
+type Theme = "dark" | "light";
 
 interface ThemeProviderProps {
   children: React.ReactNode;
