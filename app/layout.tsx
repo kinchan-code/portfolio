@@ -51,7 +51,7 @@ export const metadata: Metadata = {
         url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} — Frontend Software Engineer`,
+        alt: `${siteConfig.name} — ${siteConfig.jobTitle}`,
       },
     ],
   },
@@ -73,7 +73,12 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [{ url: "/icon.png", type: "image/png" }],
+    icon: [
+      { url: "/icon.svg?v=15", type: "image/svg+xml" },
+      { url: "/icon.png?v=15", type: "image/png", sizes: "32x32" },
+      { url: "/icon-48.png?v=15", type: "image/png", sizes: "48x48" },
+    ],
+    apple: [{ url: "/apple-icon.png?v=15", sizes: "180x180", type: "image/png" }],
   },
 };
 
@@ -83,10 +88,10 @@ const jsonLd = {
   name: siteConfig.name,
   url: siteConfig.url,
   email: siteConfig.email,
-  jobTitle: "Frontend Software Engineer",
+  jobTitle: siteConfig.jobTitle,
   description: siteConfig.description,
   image: `${siteConfig.url}/me.jpg`,
-  sameAs: [siteConfig.links.linkedin],
+  sameAs: [siteConfig.links.linkedin, siteConfig.links.github],
 };
 
 const themeStorageKey = "mode";
@@ -98,7 +103,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={defaultTheme} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={defaultTheme}
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
       <head>
         <script
           dangerouslySetInnerHTML={{

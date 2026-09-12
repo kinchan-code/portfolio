@@ -1,7 +1,8 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
-export const alt = "Christian Bangay — Frontend Software Engineer";
+import { siteConfig } from "@/lib/site";
+
+export const alt = `${siteConfig.name} — ${siteConfig.jobTitle}`;
 export const size = {
   width: 1200,
   height: 630,
@@ -9,6 +10,8 @@ export const size = {
 export const contentType = "image/png";
 
 export default function OpenGraphImage() {
+  const siteHost = new URL(siteConfig.url).host;
+
   return new ImageResponse(
     (
       <div
@@ -19,7 +22,8 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px",
-          background: "linear-gradient(145deg, #f4f7fb 0%, #e7eef7 55%, #d9e6f5 100%)",
+          background:
+            "linear-gradient(145deg, #f4f7fb 0%, #e7eef7 55%, #d9e6f5 100%)",
           color: "#141b29",
           fontFamily: "ui-sans-serif, system-ui, sans-serif",
         }}
@@ -45,7 +49,7 @@ export default function OpenGraphImage() {
               lineHeight: 1.05,
             }}
           >
-            Christian Bangay
+            {siteConfig.name}
           </div>
           <div
             style={{
@@ -55,7 +59,7 @@ export default function OpenGraphImage() {
               letterSpacing: "0.02em",
             }}
           >
-            Frontend Software Engineer
+            {siteConfig.jobTitle}
           </div>
           <div
             style={{
@@ -66,8 +70,7 @@ export default function OpenGraphImage() {
               color: "#5c6b82",
             }}
           >
-            Accessible web products with React, Next.js, and the APIs behind
-            them.
+            {siteConfig.description}
           </div>
         </div>
         <div
@@ -79,10 +82,14 @@ export default function OpenGraphImage() {
             color: "#5c6b82",
           }}
         >
-          <span>christian-bangay.vercel.app</span>
-          <span style={{ color: "#1d6fd8", fontWeight: 600 }}>
-            Available for work
-          </span>
+          <span>{siteHost}</span>
+          {siteConfig.availableForWork ? (
+            <span style={{ color: "#1d6fd8", fontWeight: 600 }}>
+              Available for work
+            </span>
+          ) : (
+            <span />
+          )}
         </div>
       </div>
     ),
