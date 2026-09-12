@@ -3,7 +3,10 @@ import { ArrowLeft, Terminal } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen max-w-screen px-6 lg:mx-32 lg:px-12">
+    <main
+      id="main-content"
+      className="min-h-screen max-w-screen px-6 lg:mx-32 lg:px-12"
+    >
       <section className="flex min-h-screen w-full flex-col justify-center gap-8 py-12 lg:p-6">
         <div className="grid w-full items-center gap-8 xl:grid-cols-2">
           <div className="flex max-w-xl flex-col gap-4">
@@ -19,7 +22,7 @@ export default function NotFound() {
             </p>
             <Link
               href="/"
-              className="mt-2 inline-flex w-fit items-center gap-2 text-primary underline-offset-4 hover:underline"
+              className="mt-2 inline-flex w-fit items-center gap-2 text-brand underline-offset-4 hover:underline"
             >
               <ArrowLeft className="h-4 w-4" />
               <span className="text-lg font-body font-semibold">
@@ -28,7 +31,7 @@ export default function NotFound() {
             </Link>
           </div>
           <div className="hidden items-center justify-center xl:flex">
-            <Terminal className="h-64 w-64 text-primary" />
+            <Terminal className="h-64 w-64 text-brand/40" />
           </div>
         </div>
       </section>

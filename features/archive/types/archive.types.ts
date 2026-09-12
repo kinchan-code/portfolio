@@ -1,13 +1,13 @@
-export interface ArchiveLink {
+interface ArchiveLink {
   name: string;
   path: string;
 }
 
-export interface ArchiveTechnology {
+interface ArchiveTechnology {
   name: string;
 }
 
-export interface ArchiveTableRow {
+interface ArchiveTableRow {
   year: string;
   project: string;
   madeAt: string;

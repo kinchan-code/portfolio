@@ -1,16 +1,17 @@
-import { Card } from "@/components/shared";
-import { workExperience } from "@/lib/data/card-contents";
+import { Card, SectionHeading } from "@/components/shared";
+
+import { workExperience } from "@/features/experiences/data/work-experience";
 
 export function Experiences() {
   return (
-    <main className="container flex flex-col gap-4">
-      <label
-        htmlFor="work-experience"
-        className="text-lg font-bold font-body uppercase lg:pl-6"
-      >
+    <section
+      aria-labelledby="work-experience-heading"
+      className="container flex flex-col gap-4"
+    >
+      <SectionHeading id="work-experience-heading">
         Work Experience
-      </label>
-      <div id="work-experience" className="flex flex-col gap-6 lg:gap-0">
+      </SectionHeading>
+      <div className="flex flex-col">
         {workExperience.map((info) => (
           <Card
             info={info}
@@ -18,6 +19,6 @@ export function Experiences() {
           />
         ))}
       </div>
-    </main>
+    </section>
   );
 }
