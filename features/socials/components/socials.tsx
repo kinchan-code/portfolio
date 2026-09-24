@@ -2,7 +2,7 @@ import { Dot } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-import { DarkModeToggle } from "@/components/shared/dark-mode-toggle";
+import { DeferredThemeToggle } from "@/components/shared/deferred-theme-toggle";
 import { buttonVariants } from "@/components/ui/button";
 
 import { socialMedia } from "@/features/socials/data/social-media";
@@ -28,7 +28,7 @@ export function Socials() {
         );
       })}
       <Dot className="text-muted-foreground" aria-hidden />
-      <DarkModeToggle />
+      <DeferredThemeToggle />
     </section>
   );
 }

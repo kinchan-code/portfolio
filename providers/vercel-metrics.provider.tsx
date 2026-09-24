@@ -13,9 +13,18 @@ const SpeedInsights = dynamic(
   { ssr: false }
 );
 
+const ScrollRestorerProvider = dynamic(
+  () =>
+    import("@/providers/scroll-restorer.provider").then(
+      (mod) => mod.ScrollRestorerProvider
+    ),
+  { ssr: false }
+);
+
 export function VercelMetrics() {
   return (
     <>
+      <ScrollRestorerProvider />
       <Analytics />
       <SpeedInsights />
     </>

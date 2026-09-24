@@ -1,3 +1,5 @@
+import "@/lib/modern-polyfill";
+
 const name = "Christian Bangay";
 const jobTitle = "Frontend Software Engineer";
 const email = "hello@kinchan.is-a.dev";

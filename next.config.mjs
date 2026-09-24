@@ -5,6 +5,22 @@ const nextConfig = {
     // Tailwind CSS is small (~10KiB); inlining removes the render-blocking CSS chain for first visits / PSI.
     inlineCss: true,
   },
+  // Next ships a fixed polyfill bundle that Lighthouse flags as "Legacy JavaScript"
+  // even when browserslist already targets modern engines. Stub it out.
+  turbopack: {
+    resolveAlias: {
+      "../build/polyfills/polyfill-module": "./lib/modern-polyfill.ts",
+      "next/dist/build/polyfills/polyfill-module": "./lib/modern-polyfill.ts",
+    },
+  },
+  webpack(config) {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "../build/polyfills/polyfill-module": false,
+      "next/dist/build/polyfills/polyfill-module": false,
+    };
+    return config;
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [70, 75],
