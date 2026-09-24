@@ -5,7 +5,6 @@ import { Suspense } from "react";
 import { siteConfig } from "@/lib/site";
 import { getThemeInitScript } from "@/lib/theme-init-script";
 import {
-  ScrollRestorerProvider,
   ThemeProvider,
   VercelMetrics,
 } from "@/providers";
@@ -135,7 +134,6 @@ export default function RootLayout({
           <PageAtmosphere />
           <Suspense fallback={<Loader />}>
             {children}
-            <ScrollRestorerProvider />
             <VercelMetrics />
           </Suspense>
         </ThemeProvider>
