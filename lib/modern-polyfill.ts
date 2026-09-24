@@ -1,3 +1,3 @@
-// Intentionally empty: Next.js otherwise injects legacy polyfills for modern browsers.
-// Safe with our browserslist targets (Chrome/Edge/Firefox 111+, Safari 16.4+).
+// Empty stub used as Next.js polyfill-module alias (see next.config.mjs).
+// Also imported from site.ts so tooling treats this file as reachable.
 export {};
