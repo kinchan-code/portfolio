@@ -2,6 +2,7 @@ export * from "@/components/shared/abbr";
 export * from "@/components/shared/card";
 export * from "@/components/shared/card.types";
 export * from "@/components/shared/dark-mode-toggle";
+export * from "@/components/shared/deferred-theme-toggle";
 export * from "@/components/shared/home-chrome";
 export * from "@/components/shared/loader";
 export * from "@/components/shared/page-atmosphere";
