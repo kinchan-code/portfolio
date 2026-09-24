@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
-import { buttonVariants } from "@/components/ui";
+import { buttonVariants } from "@/components/ui/button";
 
 interface IntroductionProps {
   children?: ReactNode;

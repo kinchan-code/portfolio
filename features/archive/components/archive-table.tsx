@@ -11,7 +11,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui";
+} from "@/components/ui/table";
 
 import type { ArchiveTableProps } from "@/features/archive/types/archive.types";
 

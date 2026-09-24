@@ -28,11 +28,11 @@ This portfolio includes:
 
 ## Live Demo
 
-You can view the live version of my portfolio at: [christian-bangay.vercel.app](https://christian-bangay.vercel.app)
+You can view the live version of my portfolio at: [kinchan.is-a.dev](https://kinchan.is-a.dev)
 
 ## Contact
 
-Feel free to reach out to me at [chanbangay@gmail.com](mailto:chanbangay@gmail.com) for any inquiries or collaborations.
+Feel free to reach out to me at [hello@kinchan.is-a.dev](mailto:hello@kinchan.is-a.dev) for any inquiries or collaborations.
 
 ---
 

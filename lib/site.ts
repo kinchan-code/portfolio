@@ -1,7 +1,7 @@
 const name = "Christian Bangay";
 const jobTitle = "Frontend Software Engineer";
-const email = "chanbangay@gmail.com";
-const url = "https://christian-bangay.vercel.app";
+const email = "hello@kinchan.is-a.dev";
+const url = "https://kinchan.is-a.dev";
 
 export const siteConfig = {
   name,

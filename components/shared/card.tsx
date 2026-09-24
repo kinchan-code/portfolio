@@ -118,7 +118,8 @@ function ProjectScreenshot({
       src={src}
       alt={`${title ?? "Project"} screenshot`}
       fill
-      sizes="(min-width: 768px) 45vw, 100vw"
+      sizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 45vw, 540px"
+      quality={70}
       className="object-cover object-top motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.05]"
     />
   );
