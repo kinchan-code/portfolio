@@ -13,7 +13,7 @@ interface IntroductionProps {
 export function Introduction({ children }: Readonly<IntroductionProps>) {
   return (
     <article className="flex flex-col gap-2">
-      <section className="flex min-h-[85svh] flex-col justify-center py-16 lg:min-h-0 lg:py-28">
+      <section className="py-20 lg:py-28">
         <div className="flex max-w-2xl flex-col gap-6">
           <div className="space-y-3">
             {siteConfig.availableForWork ? (
@@ -25,7 +25,7 @@ export function Introduction({ children }: Readonly<IntroductionProps>) {
                 <span>Available for work</span>
               </p>
             ) : null}
-            <h1 className="text-4xl font-bold tracking-tighter text-balance sm:text-5xl lg:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">
               {siteConfig.name}
             </h1>
             <h2 className="text-base font-medium tracking-wide text-muted-foreground sm:text-lg">
