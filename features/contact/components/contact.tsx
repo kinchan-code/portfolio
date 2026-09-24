@@ -2,7 +2,7 @@ import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 import { SectionHeading } from "@/components/shared";
-import { buttonVariants } from "@/components/ui";
+import { buttonVariants } from "@/components/ui/button";
 
 import { CopyEmailButton } from "@/features/contact/components/copy-email-button";
 

@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Suspense } from "react";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { siteConfig } from "@/lib/site";
 import { getThemeInitScript } from "@/lib/theme-init-script";
-import { ScrollRestorerProvider, ThemeProvider } from "@/providers";
+import {
+  ScrollRestorerProvider,
+  ThemeProvider,
+  VercelMetrics,
+} from "@/providers";
 
 import { Loader, PageAtmosphere, SkipLink } from "@/components/shared";
 
@@ -134,8 +136,7 @@ export default function RootLayout({
           <Suspense fallback={<Loader />}>
             {children}
             <ScrollRestorerProvider />
-            <Analytics />
-            <SpeedInsights />
+            <VercelMetrics />
           </Suspense>
         </ThemeProvider>
       </body>

@@ -1,14 +1,16 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
 import {
   useEffect,
   useRef,
-  useSyncExternalStore,
   type PointerEvent,
   type ReactNode,
 } from "react";
 
+import {
+  useMediaQuery,
+  usePrefersReducedMotion,
+} from "@/hooks/use-media-query.hooks";
 import { cn } from "@/lib/utils";
 
 interface TiltProps {
@@ -20,28 +22,14 @@ interface TiltProps {
 
 const TILT_MEDIA = "(hover: hover) and (pointer: fine)";
 
-function subscribeToTiltMedia(onStoreChange: () => void) {
-  const media = window.matchMedia(TILT_MEDIA);
-  media.addEventListener("change", onStoreChange);
-  return () => media.removeEventListener("change", onStoreChange);
-}
-
-function useCanTilt() {
-  return useSyncExternalStore(
-    subscribeToTiltMedia,
-    () => window.matchMedia(TILT_MEDIA).matches,
-    () => false
-  );
-}
-
 export function Tilt({
   children,
   className,
   maxTiltDeg = 7,
   scale = 1.02,
 }: Readonly<TiltProps>) {
-  const shouldReduceMotion = useReducedMotion();
-  const canTilt = useCanTilt();
+  const shouldReduceMotion = usePrefersReducedMotion();
+  const canTilt = useMediaQuery(TILT_MEDIA);
   const enabled = canTilt && !shouldReduceMotion;
   const frameRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number | null>(null);

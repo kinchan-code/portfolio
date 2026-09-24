@@ -1,11 +1,9 @@
-"use client";
-
 import { Dot } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-import { Abbr, DarkModeToggle } from "@/components/shared";
-import { buttonVariants } from "@/components/ui";
+import { DarkModeToggle } from "@/components/shared/dark-mode-toggle";
+import { buttonVariants } from "@/components/ui/button";
 
 import { socialMedia } from "@/features/socials/data/social-media";
 
@@ -16,20 +14,20 @@ export function Socials() {
         const isMailLink = social.link.startsWith("mailto:");
 
         return (
-          <Abbr title={social.name} key={social.name}>
-            <a
-              href={social.link}
-              target={isMailLink ? undefined : "_blank"}
-              rel={isMailLink ? undefined : "noopener noreferrer"}
-              aria-label={social.name}
-              className={cn(buttonVariants({ variant: "outline", size: "icon" }))}
-            >
-              {social.icon}
-            </a>
-          </Abbr>
+          <a
+            key={social.name}
+            href={social.link}
+            title={social.name}
+            target={isMailLink ? undefined : "_blank"}
+            rel={isMailLink ? undefined : "noopener noreferrer"}
+            aria-label={social.name}
+            className={cn(buttonVariants({ variant: "outline", size: "icon" }))}
+          >
+            {social.icon}
+          </a>
         );
       })}
-      <Dot className="text-muted-foreground" />
+      <Dot className="text-muted-foreground" aria-hidden />
       <DarkModeToggle />
     </section>
   );

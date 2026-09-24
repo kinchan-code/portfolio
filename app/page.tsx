@@ -1,17 +1,24 @@
+import dynamic from "next/dynamic";
+
+import { SECTION_NAV_ATTR } from "@/lib/section-nav";
+
 import { AppFooter } from "@/components/layout";
-import {
-  Reveal,
-  ScrollProgress,
-  ScrollToTop,
-  SectionNav,
-} from "@/components/shared";
+import { HomeChrome, Reveal } from "@/components/shared";
 import { About } from "@/features/about";
 import { Contact } from "@/features/contact";
 import { Education } from "@/features/education";
 import { Experiences } from "@/features/experiences";
 import { Introduction } from "@/features/introduction";
-import { Projects } from "@/features/projects";
 import { Socials } from "@/features/socials";
+
+const Projects = dynamic(
+  () => import("@/features/projects").then((mod) => mod.Projects),
+  {
+    loading: () => <div className="min-h-64" aria-hidden />,
+  }
+);
+
+const sectionAnchorClassName = "scroll-mt-(--section-nav-offset) pb-16";
 
 export default function Home() {
   return (
@@ -19,20 +26,22 @@ export default function Home() {
       id="main-content"
       className="min-h-screen max-w-screen px-6 lg:mx-32 lg:px-12"
     >
-      <ScrollProgress />
-      <SectionNav />
-      <Reveal>
-        <header className="w-full">
-          <Introduction>
-            <Socials />
-          </Introduction>
-        </header>
-      </Reveal>
+      <HomeChrome />
+      <header className="w-full">
+        <Introduction>
+          <Socials />
+        </Introduction>
+      </header>
       <div className="flex justify-between scroll-smooth">
         <div className="flex h-full flex-col">
-          <Reveal id="about" sectionNav className="pb-16">
+          {/* About is often on-screen on mobile — keep it painted for LCP. */}
+          <div
+            id="about"
+            className={sectionAnchorClassName}
+            {...{ [SECTION_NAV_ATTR]: "" }}
+          >
             <About />
-          </Reveal>
+          </div>
           <Reveal
             id="experiences"
             sectionNav
@@ -52,7 +61,6 @@ export default function Home() {
           </Reveal>
         </div>
       </div>
-      <ScrollToTop />
       <AppFooter />
     </main>
   );
