@@ -7,7 +7,7 @@ import { projectFilterOptions, siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 import { ProjectFilters, useProjectFilter } from "@/components/shared";
-import { buttonVariants } from "@/components/ui";
+import { buttonVariants } from "@/components/ui/button";
 
 import { ArchiveTable } from "@/features/archive/components/archive-table";
 import { data, headers } from "@/features/archive/data/archive-data";

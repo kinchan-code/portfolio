@@ -12,7 +12,7 @@ import {
   SectionHeading,
   useProjectFilter,
 } from "@/components/shared";
-import { buttonVariants } from "@/components/ui";
+import { buttonVariants } from "@/components/ui/button";
 
 import { projects } from "@/features/projects/data/projects";
 
