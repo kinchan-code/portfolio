@@ -1,7 +1,7 @@
 import "@/lib/modern-polyfill";
 
 const name = "Christian Bangay";
-const jobTitle = "Frontend Software Engineer";
+const jobTitle = "Full Stack Engineer";
 const email = "hello@kinchan.is-a.dev";
 const url = "https://kinchan.is-a.dev";
 
@@ -10,11 +10,11 @@ export const siteConfig = {
   jobTitle,
   title: `${name} | ${jobTitle}`,
   description:
-    "Frontend software engineer working with React and Next.js. Recent work spans trademark tools, map visualizers, and health platforms, with API, database, and Azure experience when needed.",
+    "Full stack engineer working with Next.js, .NET, and Azure. Recent work spans trademark tools, map visualizers, and health platforms.",
   intro:
-    "I make web apps with React and Next.js. Lately I've been on trademark tools, map visualizers, and health platforms, and I jump into the API and Azure side when needed.",
+    "I build web apps with Next.js, .NET, and Azure. Lately I've been on trademark tools, map visualizers, and health platforms.",
   about:
-    "I'm a frontend engineer who likes shipping interfaces people can actually use. React and Next.js are home base. I've worked on trademark protection products, location-based maps, and health platforms, and I'm comfortable picking up APIs, databases, and Azure when a project needs it.",
+    "I'm a full stack engineer who likes shipping interfaces people can actually use, then wiring them to the services behind them. Next.js, .NET, and Azure are my day-to-day stack. I've worked on trademark protection products, location-based maps, and health platforms.",
   url,
   locale: "en_US",
   email,
@@ -23,9 +23,11 @@ export const siteConfig = {
   keywords: [
     name,
     jobTitle,
-    "Full Stack Developer",
+    "Frontend Software Engineer",
     "React",
     "Next.js",
+    ".NET",
+    "Microsoft Azure",
     "TypeScript",
     "Portfolio",
     "Web Developer",

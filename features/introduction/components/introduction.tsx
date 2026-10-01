@@ -37,7 +37,7 @@ export function Introduction({ children }: Readonly<IntroductionProps>) {
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <a
-              href="/bangay-resume.pdf"
+              href="/Christian-Bangay-Full-Stack-Engineer.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className={cn(buttonVariants({ size: "lg" }), "w-fit")}

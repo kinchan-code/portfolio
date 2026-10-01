@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { ProjectFilters, useProjectFilter } from "@/components/shared";
 import { buttonVariants } from "@/components/ui/button";
 
+import { ArchiveList } from "@/features/archive/components/archive-list";
 import { ArchiveTable } from "@/features/archive/components/archive-table";
 import { data, headers } from "@/features/archive/data/archive-data";
 
@@ -42,7 +43,12 @@ export function Archive() {
           value={filter}
           onChange={setFilter}
         />
-        <ArchiveTable data={filteredItems} headers={headers} />
+        <div className="sm:hidden">
+          <ArchiveList data={filteredItems} />
+        </div>
+        <div className="hidden sm:block">
+          <ArchiveTable data={filteredItems} headers={headers} />
+        </div>
       </section>
     </main>
   );
