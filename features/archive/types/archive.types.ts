@@ -5,3 +5,7 @@ export interface ArchiveTableProps {
   headers: string[];
   data: ArchiveProjectRow[];
 }
+
+export interface ArchiveListProps {
+  data: ArchiveProjectRow[];
+}
