@@ -1,5 +1,3 @@
-import { Link as LinkIcon } from "lucide-react";
-
 import { cn } from "@/lib/utils";
 
 import { TechBadges } from "@/components/shared";
@@ -12,6 +10,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+
+import { ArchiveLinks } from "@/features/archive/components/archive-links";
 
 import type { ArchiveTableProps } from "@/features/archive/types/archive.types";
 
@@ -29,10 +29,7 @@ export function ArchiveTable({
             {headers.map((header, index) => (
               <TableHead
                 key={header}
-                className={cn(
-                  index === 2 && "hidden md:table-cell",
-                  index === 4 && "hidden sm:table-cell"
-                )}
+                className={cn(index === 2 && "hidden md:table-cell")}
               >
                 {header}
               </TableHead>
@@ -54,21 +51,8 @@ export function ArchiveTable({
                   <TechBadges technologies={row.technologies} maxVisible={3} />
                 ) : null}
               </TableCell>
-              <TableCell className="hidden sm:table-cell">
-                <div className="flex flex-wrap gap-2">
-                  {row.links?.map((link) => (
-                    <a
-                      href={link.path}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-xs font-bold hover:underline"
-                      key={link.path}
-                    >
-                      <LinkIcon className="size-4" />
-                      {link.name}
-                    </a>
-                  ))}
-                </div>
+              <TableCell>
+                <ArchiveLinks links={row.links} />
               </TableCell>
             </TableRow>
           ))}
