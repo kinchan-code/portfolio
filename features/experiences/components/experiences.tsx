@@ -1,5 +1,6 @@
 import { Card, SectionHeading } from "@/components/shared";
 
+import { ExperienceGroup } from "@/features/experiences/components/experience-group";
 import { workExperience } from "@/features/experiences/data/work-experience";
 
 export function Experiences() {
@@ -12,12 +13,15 @@ export function Experiences() {
         Work Experience
       </SectionHeading>
       <div className="flex flex-col">
-        {workExperience.map((info) => (
-          <Card
-            info={info}
-            key={`${info.company}-${info.title}-${info.date}`}
-          />
-        ))}
+        {workExperience.map(({ roles, ...info }) => {
+          const key = `${info.company}-${info.date}`;
+
+          return roles?.length ? (
+            <ExperienceGroup key={key} entry={{ ...info, roles }} />
+          ) : (
+            <Card key={key} info={info} />
+          );
+        })}
       </div>
     </section>
   );
