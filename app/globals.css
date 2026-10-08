@@ -107,34 +107,21 @@
 }
 
 /* View transitions */
-::view-transition-old(.nav-forward),
-::view-transition-old(.nav-back) {
-  animation:
-    140ms ease-out both vt-fade-out,
-    260ms var(--vt-ease-in) both vt-slide-out;
-}
-
-::view-transition-new(.nav-forward),
-::view-transition-new(.nav-back) {
-  animation:
-    300ms var(--vt-ease-out) 110ms both vt-fade-in,
-    420ms var(--vt-ease-out) 110ms both vt-slide-in;
-}
-
-::view-transition-old(.nav-forward) {
-  --vt-slide-to: calc(var(--vt-slide-distance) * -1);
-}
-
-::view-transition-new(.nav-forward) {
+/* React skips the root snapshot on navigation, so the incoming page is live
+   underneath the shared-element morphs. Animate it directly instead of
+   snapshotting whole pages, which iOS Safari can't capture reliably. */
+html:active-view-transition-type(nav-forward) main {
   --vt-slide-from: var(--vt-slide-distance);
 }
 
-::view-transition-old(.nav-back) {
-  --vt-slide-to: var(--vt-slide-distance);
+html:active-view-transition-type(nav-back) main {
+  --vt-slide-from: calc(var(--vt-slide-distance) * -1);
 }
 
-::view-transition-new(.nav-back) {
-  --vt-slide-from: calc(var(--vt-slide-distance) * -1);
+html:active-view-transition-type(nav-forward, nav-back) main {
+  animation:
+    260ms var(--vt-ease-out) both vt-fade-in,
+    380ms var(--vt-ease-out) both vt-slide-in;
 }
 
 ::view-transition-group(.morph) {
@@ -177,21 +164,9 @@ html.theme-transition::view-transition-new(root) {
   }
 }
 
-@keyframes vt-fade-out {
-  to {
-    opacity: 0;
-  }
-}
-
 @keyframes vt-slide-in {
   from {
     translate: var(--vt-slide-from) 0;
-  }
-}
-
-@keyframes vt-slide-out {
-  to {
-    translate: var(--vt-slide-to) 0;
   }
 }
 
@@ -213,7 +188,8 @@ html.theme-transition::view-transition-new(root) {
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(*),
   ::view-transition-new(*),
-  ::view-transition-group(*) {
+  ::view-transition-group(*),
+  html:active-view-transition-type(nav-forward, nav-back) main {
     animation-duration: 0s !important;
     animation-delay: 0s !important;
   }
