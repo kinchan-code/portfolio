@@ -1,10 +1,13 @@
-import type { ReactNode } from "react";
+import { ViewTransition } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import { siteNameTransition } from "@/lib/view-transitions";
 
 import { buttonVariants } from "@/components/ui/button";
+
+import type { ReactNode } from "react";
 
 interface IntroductionProps {
   children?: ReactNode;
@@ -25,9 +28,11 @@ export function Introduction({ children }: Readonly<IntroductionProps>) {
                 <span>Available for work</span>
               </p>
             ) : null}
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">
-              {siteConfig.name}
-            </h1>
+            <ViewTransition {...siteNameTransition}>
+              <h1 className="w-fit text-4xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">
+                {siteConfig.name}
+              </h1>
+            </ViewTransition>
             <h2 className="text-base font-medium tracking-wide text-muted-foreground sm:text-lg">
               {siteConfig.jobTitle}
             </h2>

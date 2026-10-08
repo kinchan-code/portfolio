@@ -5,10 +5,11 @@ export const NAV_BACK = "nav-back";
 export const PROJECT_FILTER = "project-filter";
 
 const PROJECTS_TITLE_TRANSITION = "projects-title";
+const SITE_NAME_TRANSITION = "site-name";
 
-export const pageTransition = {
-  enter: { [NAV_FORWARD]: NAV_FORWARD, [NAV_BACK]: NAV_BACK, default: "none" },
-  exit: { [NAV_FORWARD]: NAV_FORWARD, [NAV_BACK]: NAV_BACK, default: "none" },
+export const siteNameTransition = {
+  name: SITE_NAME_TRANSITION,
+  share: { [NAV_FORWARD]: "morph", [NAV_BACK]: "morph", default: "none" },
   default: "none",
 } satisfies ViewTransitionProps;
 
