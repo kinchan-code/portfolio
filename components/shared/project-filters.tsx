@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { addTransitionType, startTransition, useMemo, useState } from "react";
 
 import { cn } from "@/lib/utils";
+import { PROJECT_FILTER } from "@/lib/view-transitions";
 
 import { Button } from "@/components/ui/button";
 
@@ -57,6 +58,13 @@ export function useProjectFilter<T extends { technologies?: { name: string }[] }
 ) {
   const [filter, setFilter] = useState(initialValue);
 
+  const selectFilter = (value: string) => {
+    startTransition(() => {
+      addTransitionType(PROJECT_FILTER);
+      setFilter(value);
+    });
+  };
+
   const filteredItems = useMemo(() => {
     if (filter === "all") {
       return items;
@@ -81,7 +89,7 @@ export function useProjectFilter<T extends { technologies?: { name: string }[] }
 
   return {
     filter,
-    setFilter,
+    setFilter: selectFilter,
     filteredItems,
     filterOptions,
   };
