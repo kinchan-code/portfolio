@@ -1,10 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import { ViewTransition } from "react";
 import { ArrowRight } from "lucide-react";
 
 import { projectFilterOptions } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import {
+  NAV_FORWARD,
+  filterItemTransition,
+  projectsTitleTransition,
+  toTransitionName,
+} from "@/lib/view-transitions";
 
 import {
   Card,
@@ -38,7 +45,15 @@ export function Projects() {
       {filteredItems.length > 0 ? (
         <div className="grid gap-4 md:grid-cols-2">
           {filteredItems.map((info) => (
-            <Card info={info} key={info.title || ""} />
+            <ViewTransition
+              key={info.title}
+              name={toTransitionName("project", info.title ?? "")}
+              {...filterItemTransition}
+            >
+              <div>
+                <Card info={info} />
+              </div>
+            </ViewTransition>
           ))}
         </div>
       ) : (
@@ -49,12 +64,15 @@ export function Projects() {
       <div className="flex justify-start lg:pl-6">
         <Link
           href="/archive"
+          transitionTypes={[NAV_FORWARD]}
           className={cn(
             buttonVariants({ variant: "link" }),
             "flex items-center gap-2 p-0 text-sm"
           )}
         >
-          <span className="text-lg font-bold">View All Projects</span>
+          <ViewTransition {...projectsTitleTransition}>
+            <span className="text-lg font-bold">View All Projects</span>
+          </ViewTransition>
           <ArrowRight className="size-4" />
         </Link>
       </div>
